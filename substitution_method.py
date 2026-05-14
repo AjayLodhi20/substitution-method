@@ -7,25 +7,28 @@
 # 5. what if there are more than three equations - allow till three equations
 # 6. use +,-,*,/
 # 7. return a tuple with x and y coordinates
-import random
-from operator import add, mul, sub
 
+import operator as op
 # 1. take values for an equation
 class Equation:
-    OPS = {
-        '+' : add,
-        '-' : sub,
-    }
+    def __init__(self,sign_func, x=1, y=1, c=0):
+        self.a = x
+        self.sign = self.operators(sign_func)
+        self.b = y
+        self.c = c
+# 1a. add + -
 
+    def operators(self, sign):
+        if sign ==  '+' :
+            return self.sign == op.add()
+        return self.sign == op.sub()
 
-    def values(self):
-        a = int(input("Enter Co-efficient for x: "))
-        s = int(input("Enter sign + or -"))
-        b = int(input("Enter Co-efficient for y: "))
-        c = int(input('Enter constant: '))
+    def first(self):
+        if self.a == 0:
+            return 'undefined'
+        x = (self.c - self.b)/self.a
+        return x
 
+eq1 = Equation('+', 2, 2, 2 )
 
-    # def __init__(self):
-    #
-    # def __str__(self):
-    #     return f"{}x"
+print(eq1.first())
