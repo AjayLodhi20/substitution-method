@@ -20,14 +20,21 @@ class Equation:
 
     def operators(self, sign):
         if sign ==  '+' :
-            return self.sign == op.add()
-        return self.sign == op.sub()
+            return  op.add
+        return  op.sub
 
     def first(self):
         if self.a == 0:
             return 'undefined'
-        x = (self.c - self.b)/self.a
-        return x
+        if self.sign == op.add:
+            x = (self.c - self.b)/self.a
+            return x
+        else:
+            x = (self.c + self.b)/self.a
+            return x
+
+    def finding_2nd(self):
+
 
 eq1 = Equation('+', 2, 2, 2 )
 
