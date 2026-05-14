@@ -13,7 +13,7 @@ import operator as op
 class Equation:
     def __init__(self,sign_func, x=1, y=1, c=0):
         self.a = x
-        self.sign = self.operators(sign_func)
+        self.sign = sign_func
         self.b = y
         self.c = c
 # 1a. add + -
@@ -37,9 +37,12 @@ class Equation:
         b = (x*self.a + self.c)/self.b
         return b
 
+    def __repr__(self):
+        return f"{self.a}x {self.sign} {self.b}y = {self.c}"
 
 
-eq1 = Equation('+', 8, 22, 2 )
+eq1 = Equation('+', 9, 12, 28 )
 
 print(eq1.first())
 print(eq1.finding_2nd(eq1.first()))
+print(eq1)
