@@ -22,7 +22,7 @@ class Equation:
         if sign ==  '+' :
             return  op.add
         return  op.sub
-
+# 2a. isolate x or y
     def first(self):
         if self.a == 0:
             return 'undefined'
@@ -33,9 +33,13 @@ class Equation:
             x = (self.c + self.b)/self.a
             return x
 
-    def finding_2nd(self):
+    def finding_2nd(self, x):
+        b = (x*self.a + self.c)/self.b
+        return b
 
 
-eq1 = Equation('+', 2, 2, 2 )
+
+eq1 = Equation('+', 8, 22, 2 )
 
 print(eq1.first())
+print(eq1.finding_2nd(eq1.first()))
